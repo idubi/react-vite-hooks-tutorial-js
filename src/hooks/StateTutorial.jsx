@@ -38,6 +38,8 @@ export const stateTutorial2 = () => {
 export const state = () => {
   return (
     <div>
+      <br />
+      <p>S T A T E - T U T O R I A L</p>
       {stateTutorial1()} + {stateTutorial2()} + {stateTutorial1()}
     </div>
   );

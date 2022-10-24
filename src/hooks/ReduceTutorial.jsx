@@ -24,7 +24,8 @@ const reduceTutorial1 = () => {
   const reducer = (state, action) => {
     const actions = {
       INCREMENT: { count: state.count + 1, show_text: state.show_text },
-      TOGGLE_SHOW: { count: state.count, show_text: !state.show_text },
+      //TOGGLE_SHOW: { count: state.count, show_text: !state.show_text },
+      TOGGLE_SHOW: { count: state.count, show_text: state.count % 2 === 0 },
     };
 
     return actions[action.type] || state;
@@ -38,7 +39,7 @@ const reduceTutorial1 = () => {
   return (
     <div>
       <h1>{state.count}</h1>
-      {state.show_text && <p>toggle text here</p>}
+
       <button
         onClick={() => {
           dispatch({ type: "INCREMENT" });
@@ -48,10 +49,17 @@ const reduceTutorial1 = () => {
         {" "}
         click me{" "}
       </button>
+      {state.show_text && <p>toggle text here</p>}
     </div>
   );
 };
 
 export const reduce = () => {
-  return <div>{reduceTutorial1()}</div>;
+  return (
+    <div>
+      <br />
+      <p>R E D U C E - T U T O R I A L</p>
+      {reduceTutorial1()}
+    </div>
+  );
 };
